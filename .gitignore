@@ -1,0 +1,44 @@
+# Archivos de compilación
+**/target/
+**/out/
+**/*.class
+**/*.war
+**/*.ear
+
+# Archivos de configuración del IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archivos específicos de IntelliJ
+## Archivos de proyecto de IntelliJ
+**/code/.idea/
+**/code/*.iml
+**/code/.classpath
+**/code/.project
+**/code/.settings/
+
+# Archivos de logs
+**/code/*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de Maven
+**/code/.mvn/
+**/code/mvnw
+**/code/mvnw.cmd
+
+# Archivos de configuración del sistema
+.vscode/
+*.swp
+
+# Archivos de Docker
+**/code/.dockerignore
+**/docker/docker-compose.override.yml
+
+# Otros archivos innecesarios
+*.log
+*.tmp

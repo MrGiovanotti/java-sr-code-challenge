@@ -1,0 +1,19 @@
+version: '3'
+services:
+  database:
+    image: centos/mysql-57-centos7
+    container_name: database
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: codechallenge
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+    ports:
+      - "3306:3306"    
+    networks:
+      - code-challenge-network
+
+networks:
+  code-challenge-network:
+    driver: bridge

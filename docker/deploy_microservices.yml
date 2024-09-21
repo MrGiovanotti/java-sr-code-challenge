@@ -1,0 +1,34 @@
+version: '3'
+services:
+  customer-management:
+    build:
+      context: ./dockerfile-customer-management
+      dockerfile: Dockerfile
+    image: customer-management:latest
+    container_name: customer-management
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - code-challenge-network
+    ports:
+      - "8080:8080"
+
+  account-management:
+    build:
+      context: ./dockerfile-account-management
+      dockerfile: Dockerfile
+    image: account-management:latest
+    container_name: account-management
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - BASE_URL_CUSTOMER=http://customer-management:8080
+    depends_on:
+      - customer-management
+    networks:
+      - code-challenge-network
+    ports:
+      - "8081:8081"
+
+networks:
+  code-challenge-network:
+    driver: bridge
